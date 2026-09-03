@@ -31,7 +31,7 @@ of everything it edits" - enforced by plain Bash, not by asking the model nicely
 
 | Hook | Type | Status |
 |---|---|---|
-| `pre_secrets_guard.sh` | PreToolUse | ⬜ not yet added |
+| `pre_secrets_guard.sh` | PreToolUse | ✅ |
 | `pre_command_firewall.sh` | PreToolUse | ⬜ not yet added |
 | `pre_rate_limiter.sh` | PreToolUse | ⬜ not yet added |
 | `pre_commit_validator.sh` | PreToolUse | ⬜ not yet added |
