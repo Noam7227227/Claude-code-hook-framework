@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run shellcheck
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          shell_files=(**/*.sh)
+          if (( ${#shell_files[@]} == 0 )); then
+            echo "No shell scripts found; skipping shellcheck."
+          else
+            shellcheck "${shell_files[@]}"
+          fi
+
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Make shell scripts executable
+        run: |
+          chmod +x hook_runner.sh
+          find .claude/hooks -maxdepth 1 -type f -name '*.sh' -exec chmod +x {} +
+          find tests -maxdepth 1 -type f -name '*.sh' -exec chmod +x {} +
+
+      - name: Run tests
+        run: bash tests/run_all.sh

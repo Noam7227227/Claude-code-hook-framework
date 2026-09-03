@@ -1,0 +1,6 @@
+.claude/hooks/data/
+.claude/hooks/**/.backups/
+.command_count
+*.log
+.DS_Store
+*.swp
