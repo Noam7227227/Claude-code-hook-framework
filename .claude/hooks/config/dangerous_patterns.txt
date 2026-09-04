@@ -1,0 +1,12 @@
+# Dangerous command patterns (regex format)
+# Each line is a regex checked against the full command string
+rm -rf
+rm -r /
+git reset --hard
+git push.*--force
+git push.*-f[^i]
+> /dev/sd
+mkfs\.
+dd if=
+:\(\)\{.*\};
+chmod -R 777
