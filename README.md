@@ -33,7 +33,7 @@ of everything it edits" - enforced by plain Bash, not by asking the model nicely
 |---|---|---|
 | `pre_secrets_guard.sh` | PreToolUse | ✅ |
 | `pre_command_firewall.sh` | PreToolUse | ✅ |
-| `pre_rate_limiter.sh` | PreToolUse | ⬜ not yet added |
+| `pre_rate_limiter.sh` | PreToolUse | ✅ |
 | `pre_commit_validator.sh` | PreToolUse | ⬜ not yet added |
 | `post_auto_backup.sh` | PostToolUse | ⬜ not yet added |
 | `post_syntax_checker.sh` | PostToolUse | ⬜ not yet added |
