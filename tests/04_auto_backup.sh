@@ -13,6 +13,8 @@ FAIL=0
 DATA_BACKUP=""
 CONFIG_BACKUP=""
 
+# cleanup is invoked indirectly by the EXIT trap.
+# shellcheck disable=SC2317
 cleanup() {
     if [[ -n "$DATA_BACKUP" && -d "$DATA_BACKUP" ]]; then
         rm -rf "$HOOK_DATA_DIR"
