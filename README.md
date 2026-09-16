@@ -36,7 +36,7 @@ of everything it edits" - enforced by plain Bash, not by asking the model nicely
 | `pre_rate_limiter.sh` | PreToolUse | ✅ |
 | `pre_commit_validator.sh` | PreToolUse | ✅ |
 | `post_auto_backup.sh` | PostToolUse | ✅ |
-| `post_syntax_checker.sh` | PostToolUse | ⬜ not yet added |
+| `post_syntax_checker.sh` | PostToolUse | ✅ |
 | `post_session_summary.sh` | Stop | ⬜ not yet added |
 | `hook_runner.sh` (wiring) | — | ⬜ not yet added |
 
