@@ -27,7 +27,7 @@ of everything it edits" - enforced by plain Bash, not by asking the model nicely
 
 ## Status
 
-🚧 Work in progress. Hooks are being added one at a time. See the checklist below.
+✅ All core hooks implemented.
 
 | Hook | Type | Status |
 |---|---|---|
@@ -38,7 +38,7 @@ of everything it edits" - enforced by plain Bash, not by asking the model nicely
 | `post_auto_backup.sh` | PostToolUse | ✅ |
 | `post_syntax_checker.sh` | PostToolUse | ✅ |
 | `post_session_summary.sh` | Stop | ✅ |
-| `hook_runner.sh` (wiring) | — | ⬜ not yet added |
+| `hook_runner.sh` (wiring) | — | ✅ |
 
 ## Project structure
 
@@ -80,6 +80,16 @@ Run the full test suite locally:
 bash tests/run_all.sh
 ```
 
+Run the proof-of-concept demonstration:
+
+```bash
+bash examples/demo.sh
+```
+
+The demo exercises the real routing path: a safe command is allowed, a
+dangerous command is blocked, and a read of `.env` is blocked by the secrets
+guard. It is a quick smoke test after changing a hook or its configuration.
+
 ## Contract
 
 | Exit code | Meaning |
@@ -100,3 +110,10 @@ into Claude Code automatically — open Claude Code in that directory and run
 Each hook is added as its own commit with a matching test file under `tests/`.
 CI (GitHub Actions) lints every script with `shellcheck` and runs the full test
 suite on every push — see badge above once CI is wired up.
+
+## Roadmap
+
+- Add a machine-readable JSON output mode for CI and dashboards.
+- Add a dry-run mode that reports which hooks would run without changing files
+  or writing runtime state.
+- Add integration tests against real Claude Code hook payload fixtures.

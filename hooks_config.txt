@@ -1,0 +1,11 @@
+# Hook Runner Configuration
+# Format: event_type:tool_matcher:script_path
+# tool_matcher supports * wildcard (matches any tool name)
+# Hooks run in order; first exit-2 stops the chain for PreToolUse
+PreToolUse:Read:./.claude/hooks/pre_secrets_guard.sh
+PreToolUse:Bash:./.claude/hooks/pre_command_firewall.sh
+PreToolUse:Bash:./.claude/hooks/pre_rate_limiter.sh
+PreToolUse:Bash:./.claude/hooks/pre_commit_validator.sh
+PostToolUse:Edit:./.claude/hooks/post_auto_backup.sh
+PostToolUse:Edit:./.claude/hooks/post_syntax_checker.sh
+Stop:*:./.claude/hooks/post_session_summary.sh
