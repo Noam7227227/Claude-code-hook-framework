@@ -30,7 +30,7 @@ fi
 
 # Normalize: convert backslashes to forward slashes, lowercase for comparison
 normalize() {
-    printf '%s' "$1" | tr '\\' '/' | tr '[:upper:]' '[:lower:]'
+    printf '%s' "$1" | tr '\' '/' | tr '[:upper:]' '[:lower:]'
 }
 
 NORMALIZED_COMMAND="$(normalize "$COMMAND")"

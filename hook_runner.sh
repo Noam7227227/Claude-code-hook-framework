@@ -105,7 +105,7 @@ while IFS= read -r line; do
 
     # Execute hook, feeding the saved stdin; capture stderr separately
     STDERR_FILE="$(mktemp)"
-    cat "$TEMP_FILE" | bash "$SCRIPT_PATH" 2>"$STDERR_FILE"
+    bash "$SCRIPT_PATH" <"$TEMP_FILE" 2>"$STDERR_FILE"
     EXIT_CODE=$?
     STDERR_OUTPUT="$(cat "$STDERR_FILE")"
     rm -f "$STDERR_FILE"
